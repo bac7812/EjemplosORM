@@ -1,0 +1,15 @@
+﻿<Window x:Name="cursosWindows" x:Class="Ejercicio1.WindowCursos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ejercicio1"
+        mc:Ignorable="d"
+        Title="Cursos" Height="300" Width="300">
+    <Grid Margin="10">
+        <WrapPanel Orientation="Vertical" Grid.Column="1" Grid.Row="9">
+            <Label x:Name="cursosLabel" Content="Cursos:" HorizontalAlignment="Left" Margin="5" VerticalAlignment="Top"/>
+            <DataGrid x:Name="cursosDataGrid" HorizontalAlignment="Left" Margin="5" VerticalAlignment="Top" Width="260" Height="200" SelectionChanged="cursosDataGrid_SelectionChanged"/>
+        </WrapPanel>
+    </Grid>
+</Window>

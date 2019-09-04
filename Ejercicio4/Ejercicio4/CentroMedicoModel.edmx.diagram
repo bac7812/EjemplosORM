@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="22b558f0338c4465a8428b4125784b0f" Name="Diagram1">
+        <EntityTypeShape EntityType="CentroMedicoModel.Citas" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CentroMedicoModel.Especialidades" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CentroMedicoModel.Historiales" Width="1.5" PointX="8.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CentroMedicoModel.Horarios" Width="1.5" PointX="5.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CentroMedicoModel.Medicos" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CentroMedicoModel.ServicioMedico" Width="1.5" PointX="0.5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CentroMedicoModel.Usuarios" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="CentroMedicoModel.FK__Citas__medico__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="CentroMedicoModel.FK__Citas__usuario__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="CentroMedicoModel.FK__Medicos__especia__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="CentroMedicoModel.FK__Historial__medic__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="CentroMedicoModel.FK__Historial__usuar__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="CentroMedicoModel.FK__Horarios__Medico__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="CentroMedicoModel.FK__Medicos__servici__35BCFE0A" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

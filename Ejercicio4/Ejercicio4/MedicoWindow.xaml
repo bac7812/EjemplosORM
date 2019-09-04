@@ -1,0 +1,24 @@
+﻿<Window x:Class="Ejercicio4.MedicoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ejercicio4"
+        mc:Ignorable="d"
+        Title="Consultar Médicos" Height="300" Width="300">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="consultarMedicoLabel" Content="Consultar:" Grid.Row="0"/>
+        <DataGrid x:Name="consultarMedicoDataGrid" DataContext="{Binding Source=Pacientes}" AutoGenerateColumns="False" Grid.Row="1" SelectionChanged="consultarMedicoDataGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=idMedico}"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Path=nombre}"/>
+                <DataGridTextColumn Header="Apellidos" Binding="{Binding Path=apellidos}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
