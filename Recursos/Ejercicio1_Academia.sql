@@ -10,39 +10,137 @@ CREATE TABLE [dbo].[Citas](
 PRIMARY KEY ([usuario], [medico], [fecha])
 ) 
 
-CREATE TABLE [dbo].[Especialidades](
-	[idEspecialidad] [varchar](8) NOT NULL,
-	[nombre] [varchar](20) NULL,
-	[descripcion] [varchar](200) NULL,
-PRIMARY KEY  ([idEspecialidad])
-) 
+CREATE TABLE [dbo].[Especialidades](CREATE DATABASE Academia
 
-CREATE TABLE [dbo].[Historiales](
-	[idHistoria] [int] NOT NULL,
-	[usuario] [varchar](15) NOT NULL,
-	[medico] [varchar](8) NOT NULL,
-	[sintomas] [varchar](200) NULL,
-	[diagnostico] [varchar](200) NULL,
-	[tratamiento] [varchar](200) NULL,
-	[fecha] [datetime] NULL,
-PRIMARY KEY ([idHistoria])
-) 
+USE [Academia]
 
-CREATE TABLE [dbo].[Horarios](
-	[Medico] [varchar](8) NOT NULL,
-	[horaInic] [varchar](5) NOT NULL,
-	[horaFin] [varchar](5) NOT NULL,
-	[diaSemana] [varchar](9) NOT NULL,
-PRIMARY KEY (	[Medico],[diaSemana] )
-) 
+CREATE TABLE [dbo].[Cursos](
+	[CursoId] [int] IDENTITY(1,1) NOT NULL,
+	[NombreCurso] [varchar](50) NULL,
+	[ProfesorrId] [int] NULL,
+ CONSTRAINT [PK_Course_1] PRIMARY KEY CLUSTERED 
+(
+	[CursoId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
 
-CREATE TABLE [dbo].[Medicos](
-	[idMedico] [varchar](8) NOT NULL,
-	[servicio] [varchar](8) NULL,
-	[especialidad] [varchar](8) NULL,
-	[nombre] [varchar](10) NOT NULL,
-	[apellidos] [varchar](30) NULL,
-	[telefono] [varchar](12) NULL,
+CREATE TABLE [dbo].[CursosEstudiante](
+	[EStudentId] [int] NOT NULL,
+	[CoursoId] [int] NOT NULL,
+ CONSTRAINT [PK_StudentCourse] PRIMARY KEY CLUSTERED 
+(
+	[EStudentId] ASC,
+	[CoursoId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[EstudianteDireccion](
+	[EstudentID] [int] NOT NULL,
+	[Direccionfamiliar] [varchar](50) NOT NULL,
+	[DireccionPersonal] [varchar](50) NULL,
+	[Localidad] [varchar](50) NOT NULL,
+	[Provincia] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_StudentAddress] PRIMARY KEY CLUSTERED 
+(
+	[EstudentID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+CREATE TABLE [dbo].[Estudiantes](
+	[EstudentID] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [varchar](50) NULL,
+	[Apellidos] [varchar](50) NULL,
+	[FechaNacimiento] [date] NULL,
+ CONSTRAINT [PK_Student] PRIMARY KEY CLUSTERED 
+(
+	[EstudentID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+CREATE DATABASE Academia
+
+USE [Academia]
+
+CREATE TABLE [dbo].[Cursos](
+	[CursoId] [int] IDENTITY(1,1) NOT NULL,
+	[NombreCurso] [varchar](50) NULL,
+	[ProfesorrId] [int] NULL,
+ CONSTRAINT [PK_Course_1] PRIMARY KEY CLUSTERED 
+(
+	[CursoId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[CursosEstudiante](
+	[EStudentId] [int] NOT NULL,
+	[CoursoId] [int] NOT NULL,
+ CONSTRAINT [PK_StudentCourse] PRIMARY KEY CLUSTERED 
+(
+	[EStudentId] ASC,
+	[CoursoId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[EstudianteDireccion](
+	[EstudentID] [int] NOT NULL,
+	[Direccionfamiliar] [varchar](50) NOT NULL,
+	[DireccionPersonal] [varchar](50) NULL,
+	[Localidad] [varchar](50) NOT NULL,
+	[Provincia] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_StudentAddress] PRIMARY KEY CLUSTERED 
+(
+	[EstudentID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+CREATE TABLE [dbo].[Estudiantes](
+	[EstudentID] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [varchar](50) NULL,
+	[Apellidos] [varchar](50) NULL,
+	[FechaNacimiento] [date] NULL,
+ CONSTRAINT [PK_Student] PRIMARY KEY CLUSTERED 
+(
+	[EstudentID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[Profesores](
+	[TeacherId] [int] IDENTITY(1,1) NOT NULL,
+	[Nomre] [varchar](50) NULL,
+	[Apellidos] [varchar](50) NULL,
+	[Direccion] [varchar](50) NULL,
+	[Telefono] [char](10) NULL,
+ CONSTRAINT [PK_Teacher_1] PRIMARY KEY CLUSTERED 
+(
+	[TeacherId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+ALTER TABLE [dbo].[Cursos]  WITH NOCHECK ADD  CONSTRAINT [FK_Course_Teacher] FOREIGN KEY([ProfesorrId])
+REFERENCES [dbo].[Profesores] ([TeacherId])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Cursos] NOCHECK CONSTRAINT [FK_Course_Teacher]
+GO
+ALTER TABLE [dbo].[CursosEstudiante]  WITH CHECK ADD  CONSTRAINT [FK_StudentCourse_Course] FOREIGN KEY([CoursoId])
+REFERENCES [dbo].[Cursos] ([CursoId])
+GO
+ALTER TABLE [dbo].[CursosEstudiante] CHECK CONSTRAINT [FK_StudentCourse_Course]
+GO
+ALTER TABLE [dbo].[CursosEstudiante]  WITH CHECK ADD  CONSTRAINT [FK_StudentCourse_Student] FOREIGN KEY([EStudentId])
+REFERENCES [dbo].[Estudiantes] ([EstudentID])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[CursosEstudiante] CHECK CONSTRAINT [FK_StudentCourse_Student]
+GO
+ALTER TABLE [dbo].[EstudianteDireccion]  WITH CHECK ADD  CONSTRAINT [FK_EstudianteDireccion_Estudiantes] FOREIGN KEY([EstudentID])
+REFERENCES [dbo].[Estudiantes] ([EstudentID])
+GO
+ALTER TABLE [dbo].[EstudianteDireccion] CHECK CONSTRAINT [FK_EstudianteDireccion_Estudiantes]
+GO
+
 	[dni] [varchar](9) NULL,
 PRIMARY KEY CLUSTERED 
 (
